@@ -1,0 +1,14 @@
+#
+
+mainmenu "test Configuration"
+
+menu "Build Setup"
+
+endmenu
+menu "Build Configuration"
+
+endmenu
+
+source src/Kconfig
+
+

@@ -1,0 +1,32 @@
+
+menu "test fun1"
+
+config POSIX_ENABLE
+    bool " POSIX Access Control ENABLE"
+	default n
+	help	
+	POSIX Access Control Lists (ACLs) support permissions for users and groups beyond the owner/group/world scheme.
+	To learn more about Access Control Lists,visit the POSIX ACLs for Linux website <http://acl.bestbits.at/>.
+	If you don't know what Access Control Lists are, say N.
+
+choice      -
+    prompt "Default I/O scheduler"         
+    default DEFAULT_CFQ                   
+    help
+      Select the I/O scheduler which will be used by default for all
+      block devices.
+
+    config DEFAULT_DEADLINE
+        bool "Deadline" 
+    config DEFAULT_CFQ
+        bool "CFQ" 
+
+    config DEFAULT_NOOP
+        bool "No-op"
+
+endchoice
+
+
+
+
+endmenu
