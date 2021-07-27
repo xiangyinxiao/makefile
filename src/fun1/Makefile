@@ -1,7 +1,12 @@
 
 include $(TOPDIR)/tools/Config.mk
+include  $(TOPDIR)/.config 
 
+ifeq ($(CONFIG_TEST_FUN1),y)
 fun1_CSRCS +=sub.c
+else
+fun1_CSRCS +=
+endif
 
 ASRCS = $(fun1_ASRCS)
 AOBJS = $(ASRCS:.S=$(OBJEXT))

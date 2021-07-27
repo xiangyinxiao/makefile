@@ -1,22 +1,24 @@
-include $(TOPDIR)/tools/Config.mk
-include $(TOPDIR)/tools/libs.mk
-include $(TOPDIR)/tools/dirs.mk
+include $(TOPDIR)/tools/Config.mk #提供的基本的封装
+include $(TOPDIR)/tools/libs.mk   #库路径
+include $(TOPDIR)/tools/dirs.mk	  #编译目录
 
-tes_CSRCS +=main.c
 
-LIBSPATHS =-L$(TOPDIR)/src/staging
+
+LIBSPATHS =-L$(TOPDIR)/src/staging  #获取库路径
 
 VPATH +=include
 
-CFLAGS += $(patsubst %,-I%,$(subst :, ,$(VPATH)))
+export VPATH
 
-LDLIBS=$(patsubst %.a,%,$(patsubst staging/lib%,-l%,$(TESTLIBS)))
+CFLAGS += $(patsubst %,-I%,$(subst :, ,$(VPATH))) #获取头文件路径
+
+LDLIBS=$(patsubst %.a,%,$(patsubst staging/lib%,-l%,$(TESTLIBS))) #获取要链接的库
 
 all:staging pass1 $(BIN) 
 	@echo hello world
 
 $(BIN): 
-	@echo $(LDLIBS)
+	@echo $(VPATH)
 	$(CC) main.c $(CFLAGS) $(LIBSPATHS) -o ../$(BIN) $(LDLIBS) 
 
 staging: 

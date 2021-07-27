@@ -1,5 +1,6 @@
-config TEST_FUN1
-	bool " test fun1"
+
+config TEST_FUN2
+	bool " test fun2"
 	default y
 	help	
 	POSIX Access Control Lists (ACLs) support permissions for users and groups beyond the owner/group/world scheme.

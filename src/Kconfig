@@ -3,7 +3,6 @@ menu "fun1 "
 source src/fun1/Kconfig
 endmenu
 
-
 menu "fun2"
-
+source src/fun2/Kconfig
 endmenu
